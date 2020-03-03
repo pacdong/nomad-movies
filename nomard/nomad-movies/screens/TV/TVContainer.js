@@ -1,11 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import MoviesPresenter from "./MoviesPresenter";
-import { movies } from "../../api";
-
-const View = styled.View``;
-const Text = styled.Text``;
-const Touch = styled.TouchableOpacity``;
+import TVPresenter from "./TVPresenter";
+import { moviesApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -17,9 +12,9 @@ export default class extends React.Component {
   };
   async componentDidMount() {
     try {
-      const upcoming = await movies.getUpcoming();
-      const popular = await movies.getPopular();
-      const nowPlaying = await movies.getNowPlaying();
+      const upcoming = await moviesApi.getUpcoming();
+      const popular = await moviesApi.getpopular();
+      const nowPlaying = await moviesApi.getnowPlaying();
       console.log(upcoming, popular, nowPlaying);
     } catch {
       this.setState({ error: "Can't get Movies." });
@@ -27,8 +22,9 @@ export default class extends React.Component {
       this.setState({ loading: false });
     }
   }
+
   render() {
     const { loading } = this.state;
-    return <MoviesPresenter loading={loading} />;
+    return <TVPresenter loading={loading} />;
   }
 }

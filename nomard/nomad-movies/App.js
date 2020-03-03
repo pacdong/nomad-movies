@@ -1,8 +1,8 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { AppLoading, Font, Asset } from "expo";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
-import { isFrontCameraAvailable } from "expo/build/AR";
 import MainNavigation from "./navigation/MainNavigation";
 
 export default class App extends React.Component {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
   handleError = error => console.log(error);
   handleLoaded = () => this.setState({ loaded: true });
   loadAssets = async () => {
-    await isFrontCameraAvailable.loadAsync({
+    await Font.loadAsync({
       ...Ionicons.font
     });
     // await Asset.loadAsync([require("images/icon.png")]);  아이콘을 프리로드 하려면 이렇게 하면 된다.
