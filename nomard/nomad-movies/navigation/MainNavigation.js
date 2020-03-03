@@ -24,7 +24,8 @@ const MainNavigation = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Tabs"
+    initialRouteName: "Tabs",
+    headerMode: "screen"
   }
 );
 
