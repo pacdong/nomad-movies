@@ -16,5 +16,6 @@ iOS / Android Movie Discovery App built with React Native.
 - [x] Top Rated (TV)
 - [x] Popular (TV, X)
 - [x] Arigin Todat (TV)
-- [ ] TV Show Detail
-- [ ] Movie Show Detail
+- [x] TV Show Detail
+- [x] Movie Show Detail
+- [x] Search (Movies, TV)
