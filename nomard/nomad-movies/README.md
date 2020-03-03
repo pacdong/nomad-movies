@@ -11,8 +11,10 @@ iOS / Android Movie Discovery App built with React Native.
 
 ## API Verbs (themoviedb.org)
 
-- [ ] Now playing (Movie)
-- [ ] Upcoming (Movie)
-- [ ] Top Rated (TV, Move)
-- [ ] Popular (TV, Movie)
-- [ ] Arigin Todat (TV)
+- [x] Now playing (Movie)
+- [x] Upcoming (Movie)
+- [x] Top Rated (TV)
+- [x] Popular (TV, X)
+- [x] Arigin Todat (TV)
+- [ ] TV Show Detail
+- [ ] Movie Show Detail
