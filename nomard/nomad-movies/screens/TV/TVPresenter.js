@@ -7,12 +7,15 @@ const View = styled.View``;
 const Text = styled.Text``;
 const Touch = styled.TouchableOpacity``;
 
-const TVPresenter = ({ loading }) => {
+const TVPresenter = ({ loading, popular, topRated, airingToday }) => {
   return loading ? <Loader /> : <Text>Movies</Text>;
 };
 
 TVPresenter.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  popular: PropTypes.array,
+  topRated: PropTypes.array,
+  airingToday: PropTypes.array
 };
 
 export default TVPresenter;

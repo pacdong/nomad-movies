@@ -1,30 +1,50 @@
 import React from "react";
 import TVPresenter from "./TVPresenter";
-import { moviesApi } from "../../api";
+import { tv } from "../../api";
 
 export default class extends React.Component {
   state = {
     loading: true,
-    upcoming: null,
     popular: null,
-    nowPlaying: null,
-    error: null
+    topRated: null,
+    airingToday: null
   };
+
   async componentDidMount() {
+    let popular, topRated, airingToday, error;
     try {
-      const upcoming = await moviesApi.getUpcoming();
-      const popular = await moviesApi.getpopular();
-      const nowPlaying = await moviesApi.getnowPlaying();
-      console.log(upcoming, popular, nowPlaying);
-    } catch {
-      this.setState({ error: "Can't get Movies." });
+      ({
+        data: { results: popular }
+      } = await tv.getPopular());
+      ({
+        data: { results: topRated }
+      } = await tv.getTopRated());
+      ({
+        data: { results: airingToday }
+      } = await tv.getAiringToday());
+    } catch (error) {
+      console.log(error);
+      error = "Can't get TV";
     } finally {
-      this.setState({ loading: false });
+      this.setState({
+        loading: false,
+        error,
+        popular,
+        topRated,
+        airingToday
+      });
     }
   }
 
   render() {
-    const { loading } = this.state;
-    return <TVPresenter loading={loading} />;
+    const { loading, popular, topRated, airingToday } = this.state;
+    return (
+      <TVPresenter
+        loading={loading}
+        airingToday={airingToday}
+        topRated={topRated}
+        popular={popular}
+      />
+    );
   }
 }
