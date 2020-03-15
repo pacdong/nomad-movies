@@ -16,6 +16,7 @@ const MovieSlider = ({ movies }) => {
     <Swiper
       showsPagination={false}
       autoplay={true}
+      autoplayTimeout={3}
       style={{ height: SWIPER_HEIGHT }}
     >
       {movies
