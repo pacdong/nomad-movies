@@ -6,6 +6,7 @@ import Layout from "../constants/Layout";
 import MoviePoster from "./MoviePoster";
 import { TINT_COLOR, GREY_COLOR } from "../constants/Color";
 import MovieRating from "./MovieRating";
+import { withNavigation } from "react-navigation";
 
 const Container = styled.View`
   flex: 1;
@@ -58,11 +59,13 @@ const BtnText = styled.Text`
 `;
 
 const MovieSlide = ({
+  id,
   posterPhoto,
   backgroundPhoto,
   title,
   voteAvg,
-  overview
+  overview,
+  navigation
 }) => {
   return (
     <Container>
@@ -83,7 +86,14 @@ const MovieSlide = ({
                 : overview}
             </Overview>
           ) : null}
-          <BtnContainer>
+          <BtnContainer
+            onPress={() =>
+              navigation.navigate({
+                routeName: "Detail",
+                params: { isMovie: true, id }
+              })
+            }
+          >
             <BtnText>View details</BtnText>
           </BtnContainer>
         </Column>
@@ -101,4 +111,4 @@ MovieSlide.propTypes = {
   overview: PropTypes.string.isRequired
 };
 
-export default MovieSlide;
+export default withNavigation(MovieSlide);

@@ -14,7 +14,7 @@ const Container = styled.View`
 
 const InputContainer = styled.View`
   align-items: center;
-  margin-vertical: 20px;
+  margin-top: 20px;
 `;
 
 const Input = styled.TextInput`
@@ -77,6 +77,7 @@ const SearchPresenter = ({
                   .filter(tv => tv.poster_path !== null)
                   .map(tv => (
                     <MovieItem
+                      isMovie={false}
                       key={tv.id}
                       id={tv.id}
                       posterPhoto={tv.poster_path}
