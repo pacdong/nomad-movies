@@ -14,20 +14,37 @@ export default class extends React.Component {
     const {
       navigation: {
         state: {
-          params: { id, posterPhoto, backgroundPhoto, title, voteAvg, overview }
+          params: {
+            isMovie,
+            id,
+            posterPhoto,
+            backgroundPhoto,
+            title,
+            voteAvg,
+            overview
+          }
         }
       }
     } = props;
     this.state = {
       id,
+      isMovie,
       posterPhoto,
       backgroundPhoto,
       title,
       voteAvg,
-      overview
+      overview,
+      loading: true
     };
   }
 
+  async componentDidMount() {
+    try {
+    } catch {
+    } finally {
+      this.setState({ loading: false });
+    }
+  }
   render() {
     const {
       id,
@@ -35,7 +52,8 @@ export default class extends React.Component {
       backgroundPhoto,
       title,
       voteAvg,
-      overview
+      overview,
+      loading
     } = this.state;
     return (
       <DetailPresenter
@@ -45,6 +63,7 @@ export default class extends React.Component {
         title={title}
         voteAvg={voteAvg}
         overview={overview}
+        loading={loading}
       />
     );
   }
