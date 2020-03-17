@@ -13,7 +13,10 @@ const MainNavigation = createStackNavigator(
       navigationOptions: {
         headerStyle: {
           backgroundColor: styles.BG_COLOR,
-          borderBottomWidth: 0
+          borderBottomWidth: 0,
+          shadowOffset: {
+            height: 0
+          }
         },
         headerTitleStyle: {
           color: styles.TINT_COLOR
