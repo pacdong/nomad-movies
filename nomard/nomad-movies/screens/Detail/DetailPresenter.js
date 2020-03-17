@@ -31,7 +31,8 @@ const Content = styled.View`
   flex: 1;
   flex-direction: row;
   align-items: flex-end;
-  padding-horizontal: 20px;
+  width: 80%;
+  padding: 0px 20px;
   height: ${Layout.height / 3.5};
 `;
 
